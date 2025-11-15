@@ -4,7 +4,7 @@
   "description": "API RESTful para gerenciamento de tarefas, desenvolvida em Node.js + TypeScript, com foco em boas práticas de arquitetura, testes automatizados e escalabilidade.",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "jest"
   },
   "keywords": [],
