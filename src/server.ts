@@ -1,7 +1,10 @@
 import express from 'express';
+import CarregaVariavelAmbiente from './config/CarregaVariavelAmbiente';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const env = new CarregaVariavelAmbiente().Env;
+
+const PORT = env.PORT;
 
 app.use(express.json());
 
@@ -10,5 +13,6 @@ app.get('/server-status', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`\nVariáveis de ambiente carregadas: ${new CarregaVariavelAmbiente().getVariaveis()}`);
+  console.log(`\nServidor rodando na porta ${PORT}`);
 });
