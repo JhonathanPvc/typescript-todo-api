@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "Jhonathan Cordeiro",
@@ -15,6 +16,7 @@
     "dotenv": "^17.2.3",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "supertest": "^7.1.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
