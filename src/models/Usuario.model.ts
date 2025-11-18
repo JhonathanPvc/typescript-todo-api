@@ -5,6 +5,7 @@ export class Usuario {
   senha: string;
   dataCriacao: Date;
   dataEdicao?: Date;
+  isAtivo: boolean;
 
   constructor(
     id: number,
@@ -12,7 +13,8 @@ export class Usuario {
     email: string,
     senha: string,
     dataCriacao: Date,
-    dataEdicao: Date
+    dataEdicao: Date,
+    isAtivo: boolean
   ) {
     this.id = id;
     this.nome = nome;
@@ -20,5 +22,6 @@ export class Usuario {
     this.senha = senha;
     this.dataCriacao = dataCriacao;
     this.dataEdicao = dataEdicao;
+    this.isAtivo = isAtivo;
   };
 };

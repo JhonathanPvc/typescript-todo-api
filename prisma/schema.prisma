@@ -14,6 +14,7 @@ model Usuario {
   senha     String
   dataCriacao DateTime @default(now())
   dataEdicao DateTime @updatedAt
+  isAtivo   Boolean  @default(true)
 
-  @@map("Usuario.model")
+  @@map("usuarios")
 }

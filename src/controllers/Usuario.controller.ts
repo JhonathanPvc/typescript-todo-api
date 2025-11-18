@@ -20,4 +20,19 @@ export class UsuarioController {
         .json({ message: (error as Error).message });
     };
   };
+
+  async editarUsuario(request: Request, response: Response) {
+    try {
+      const usuario = request.body;
+      const usuarioEditado = await this.usuarioService.editarUsuario(usuario);
+
+      response
+        .status(StatusCodes.OK)
+        .json(usuarioEditado);
+    } catch (error) {
+      response
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ message: (error as Error).message });
+    };
+  }
 };

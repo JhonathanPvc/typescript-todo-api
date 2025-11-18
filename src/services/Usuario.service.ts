@@ -19,13 +19,40 @@ export class UsuarioService {
       const senhaCriptografada = await bcrypt.hash(usuario.senha, 10);
       usuario.senha = senhaCriptografada;
 
-      const usuarioNovo = await this.prisma
-        .usuario
-        .create({
-          data: usuario
-        });
-
-      return usuarioNovo;
+      try {
+        const usuarioNovo = await this.prisma
+          .usuario
+          .create({
+            data: usuario
+          });
+        return usuarioNovo;
+      } catch (error) {
+        throw new Error("Erro ao criar o usuário.");
+      };
     };
   };
+
+  async editarUsuario(usuario: Usuario) {
+    const isUsuarioExiste = await this.prisma
+      .usuario
+      .findUnique({
+        where: { id: usuario.id }
+      });
+
+    if (!isUsuarioExiste) {
+      throw new Error(`Usuário ${usuario.id} - ${usuario.nome} não encontrado.`);
+    } else {
+      try {
+        const usuarioEditado = await this.prisma
+          .usuario
+          .update({
+            where: { id: usuario.id },
+            data: usuario
+          });
+        return usuarioEditado;
+      } catch (error) {
+        throw new Error(`Erro ao editar o usuário ${usuario.id} - ${usuario.nome}.`);
+      };
+    };
+  }
 };
