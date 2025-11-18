@@ -12,6 +12,8 @@ model Usuario {
   nome      String?
   email     String   @unique
   senha     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  dataCriacao DateTime @default(now())
+  dataEdicao DateTime @updatedAt
+
+  @@map("Usuario.model")
 }
