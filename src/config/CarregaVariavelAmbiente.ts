@@ -13,6 +13,7 @@ export default class CarregaVariavelAmbiente {
       NODE_ENV: this.getString(EnvKeys.NODE_ENV),
       LOG_LEVEL: this.getString(EnvKeys.LOG_LEVEL),
       PORT: this.getNumber(EnvKeys.PORT),
+      DATABASE_URL: this.getString(EnvKeys.DATABASE_URL),
     };
   }
 
