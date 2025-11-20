@@ -1,6 +1,6 @@
 {
   "name": "typescript-todo-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "API RESTful para gerenciamento de tarefas, desenvolvida em Node.js + TypeScript, com foco em boas práticas de arquitetura, testes automatizados e escalabilidade.",
   "main": "dist/index.js",
   "scripts": {

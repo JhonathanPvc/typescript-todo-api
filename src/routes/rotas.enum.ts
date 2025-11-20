@@ -5,4 +5,5 @@ export enum Rotas {
 
   CRIAR = '/criar',
   EDITAR = '/editar',
+  EXCLUIR = '/excluir',
 };

@@ -8,5 +8,6 @@ const usuarioController = new UsuarioController();
 
 UsuarioRotas.post(Rotas.CRIAR, usuarioController.criarUsuario.bind(usuarioController));
 UsuarioRotas.post(Rotas.EDITAR, usuarioController.editarUsuario.bind(usuarioController));
+UsuarioRotas.post(Rotas.EXCLUIR, usuarioController.excluirUsuario.bind(usuarioController));
 
 export default UsuarioRotas;

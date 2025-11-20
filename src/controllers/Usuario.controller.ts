@@ -34,5 +34,21 @@ export class UsuarioController {
         .status(StatusCodes.BAD_REQUEST)
         .json({ message: (error as Error).message });
     };
-  }
+  };
+
+  async excluirUsuario(request: Request, response: Response) {
+    try {
+      const { id } = request.body;
+      await this.usuarioService.excluirUsuario(id);
+
+      response
+        .status(StatusCodes.OK)
+        .json({ message: `Usuario com o id ${id} excluido com sucesso!` });
+    } catch (error) {
+      response
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ message: (error as Error).message });
+
+    };
+  };
 };

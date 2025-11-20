@@ -54,5 +54,29 @@ export class UsuarioService {
         throw new Error(`Erro ao editar o usuário ${usuario.id} - ${usuario.nome}.`);
       };
     };
-  }
+  };
+
+  async excluirUsuario(id: number) {
+    const usuarioExistente = await this.prisma
+      .usuario
+      .findUnique({
+        where: { id: id }
+      });
+
+    if (!usuarioExistente) {
+      throw new Error(`Usuário ${id} não encontrado.`);
+    } else {
+      usuarioExistente.isAtivo = false;
+      try {
+        await this.prisma
+          .usuario
+          .update({
+            where: { id: id },
+            data: usuarioExistente
+          });
+      } catch (error) {
+        throw new Error(`Erro ao excluir o usuário ${usuarioExistente.id} - ${usuarioExistente.nome}.`);
+      };
+    };
+  };
 };
