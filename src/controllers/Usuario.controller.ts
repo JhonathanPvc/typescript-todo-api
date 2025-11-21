@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
+import { StatusCodes } from 'http-status-codes/build/cjs/status-codes';
 import { UsuarioService } from "../services/Usuario.service";
-import { StatusCodes } from './../../node_modules/http-status-codes/build/es/status-codes';
 
 export class UsuarioController {
   usuarioService = new UsuarioService();
